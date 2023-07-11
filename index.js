@@ -1,7 +1,11 @@
 // -- Global Imports --
 const express = require("express");
 const winston = require("winston");
-const logger = require("./src/helpers/logger");
+const logHelper = require("./src/helpers/logger");
+// Config variables (access with process.env)
+require('dotenv').config()
+
+const logger = new logHelper(this.dev ? "trace" : "info");
 
 // -- Local Imports --
 const mongodb = require("./src/backend/db/mongodb.js");
@@ -15,12 +19,12 @@ try {
 // -- Global variables --
 // Express app
 const app = express();
-// Config variables (access with process.env)
-require('dotenv').config()
 // Database
 const db = new mongodb().db;
 
 // -- APP ROUTES --
+app.use(express.static(__dirname + '/src/frontend/'));
+
 // home page
 app.get("/", (req, res) => {
     res.sendFile(process.cwd() + "/src/frontend/index.html");

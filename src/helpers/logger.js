@@ -11,7 +11,6 @@ const modes = [
 
 class Logger {
   constructor(level) {
-    this.client = client;
     this.setLevel(level ?? "trace");
 
     for (let i = 0; i < modes.length; i++) {
@@ -51,7 +50,7 @@ class Logger {
       .map((date) => date.toString().padStart(2, "0"))
       .join(":");
 
-    console.log(`${color}[${tag} ${time}]\x1b[0m ${shard}`, this.inspect(args));
+    console.log(`${color}[${tag} ${time}]\x1b[0m`, this.inspect(args));
     return this;
   }
 }
