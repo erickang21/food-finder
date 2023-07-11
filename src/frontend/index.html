@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Weather App Project JavaScript | CodingNepal</title>
+    <title>Food Finder</title>
     <link rel="stylesheet" href="./styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -13,9 +13,16 @@
       <div class="weather-input">
         <h3>Enter a City Name</h3>
         <input class="city-input" type="text" placeholder="E.g., Markham, Toronto, Waterloo">
-        <button class="search-btn">Search</button>
-        <div class="separator"></div>
-        <button class="location-btn">Use Current Location</button>
+        <button class="current-location-button">Use Current Location</button>
+        
+        
+        <div class="standard-separator"></div>
+        <h3>Filters</h3>
+        <div class="filters">
+          <button class="filter-button" onclick="this.classList.toggle('clicked')">Click Me</button>
+        </div>
+        
+
       </div>
       <div class="weather-data">
         <div class="days-forecast">

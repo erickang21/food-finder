@@ -27,8 +27,31 @@ app.use(express.static(__dirname + '/src/frontend/'));
 
 // home page
 app.get("/", (req, res) => {
-    res.sendFile(process.cwd() + "/src/frontend/index.html");
+  res.sendFile(process.cwd() + "/src/frontend/index.html");
 });
+
+// for me only: upload page
+app.get("/upload", (req, res) => {
+  res.sendFile(process.cwd() + "/src/frontend/upload.html");
+});
+
+// post
+app.post("/upload", (req, res) => {
+  const data = {
+    name: req.query.name,
+    createdAt: req.query.createdAt,
+    meal: req.query.meal,
+    type: req.query.type,
+    city: req.query.city,
+    tags: req.query.tags.split(","),
+    rating: {
+      overall: req.query.overallRating,
+      overallDescription: req.query.overallRatingDescription,
+      
+    },
+    location: req.query.location
+  }
+})
 
 app.listen(3000, (err) => {
   if (err) {

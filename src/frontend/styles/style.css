@@ -9,6 +9,7 @@
 body {
   background: #E3F2FD;
 }
+
 h1 {
   background: #5372F0;
   font-size: 1.75rem;
@@ -16,11 +17,53 @@ h1 {
   padding: 18px 0;
   color: #fff;
 }
+
 .container {
   display: flex;
   gap: 35px;
   padding: 30px;
 }
+
+.filter-button {
+  margin-top: 0.5rem;
+  display: inline-block;
+  padding: 0.5rem 1rem ;
+  border: none;
+  color: #fff;
+  background: #5372F0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 2rem;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.filter-button.clicked {
+  background-color: #4CAF50;
+}
+
+.filter-button.clicked::after {
+  content: '\2713';
+  display: inline-block;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.filter-button:hover {
+  background-color: #4CAF50;
+}
+
+.filter-button.clicked:hover {
+  background-color: #5372F0;
+}
+
+.filter-button:hover::after {
+  left: 0;
+}
+
 .weather-input {
   width: 550px;
 }
@@ -37,6 +80,15 @@ h1 {
 .weather-input input:focus {
   padding: 0 16px;
   border: 2px solid #5372F0;
+}
+.standard-separator {
+  height: 1px;
+  width: 100%;
+  margin: 25px 0;
+  background: #BBBBBB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .weather-input .separator {
   height: 1px;
@@ -55,10 +107,12 @@ h1 {
   margin-top: -4px;
   background: #E3F2FD;
 }
-.weather-input button {
+.current-location-button {
   width: 100%;
-  padding: 10px 0;
+  padding: 1rem 0;
   cursor: pointer;
+  align-items: center;
+	justify-content: center;
   outline: none;
   border: none;
   border-radius: 4px;
@@ -67,6 +121,18 @@ h1 {
   background: #5372F0;
   transition: 0.2s ease;
 }
+
+.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 10px;
+  background-color: #ccc; /* Adjust the button styling as desired */
+  border: none;
+  outline: none;
+}
+
 .weather-input .search-btn:hover {
   background: #2c52ed;
 }
@@ -83,7 +149,7 @@ h1 {
   color: #fff;
   background: #5372F0;
   border-radius: 5px;
-  padding: 20px 70px 20px 20px;
+  padding: 0px 70px 20px 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -108,7 +174,8 @@ h1 {
   text-transform: capitalize;
 }
 .days-forecast h2 {
-  margin: 20px 0;
+  margin: 0 0;
+  padding-bottom: 1rem;
   font-size: 1.5rem;
 }
 .days-forecast .weather-cards {
@@ -163,8 +230,18 @@ h1 {
   }
   .container {
     flex-wrap: wrap;
-    padding: 15px;
+    padding: 1rem;
   }
+
+  .filters {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .button-row {
+    flex-wrap: wrap;
+  }
+
   .weather-input {
     width: 100%;
   }
