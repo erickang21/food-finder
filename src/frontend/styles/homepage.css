@@ -1,0 +1,212 @@
+/* -- HOME PAGE -- */
+.container {
+    display: flex;
+    gap: 35px;
+    padding: 30px;
+  }
+  
+/* CITY SEARCH BAR */
+.homepage-city-search {
+  width: 50%;
+}
+
+.homepage-city-search input {
+  height: 46px;
+  width: 100%;
+  outline: none;
+  font-size: 1.07rem;
+  padding: 0 17px;
+  margin: 10px 0 20px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.homepage-city-search input:focus {
+  padding: 0 16px;
+  border: 2px solid #5372F0;
+}
+
+.homepage-city-search .separator {
+  height: 1px;
+  width: 100%;
+  margin: 25px 0;
+  background: #BBBBBB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage-city-search .separator::before{
+  content: "or";
+  color: #6C757D;
+  font-size: 1.18rem;
+  padding: 0 15px;
+  margin-top: -4px;
+  background: #E3F2FD;
+}
+
+.homepage-city-search-current-location-button {
+  width: 100%;
+  padding: 1rem 0;
+  cursor: pointer;
+  align-items: center;
+    justify-content: center;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #fff;
+  background: #5372F0;
+  transition: 0.2s ease;
+}
+
+.homepage-city-search .search-btn:hover {
+  background: #2c52ed;
+}
+
+.homepage-city-search .location-btn {
+  background: #6C757D;
+}
+
+.homepage-city-search .location-btn:hover {
+  background: #5c636a;
+}
+
+/* Reviews Feed */
+.homepage-reviews {
+  width: 100%;
+}
+
+.homepage-reviews h6 {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.homepage-reviews-section h2 {
+  margin: 0 0;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
+.homepage-reviews-section .homepage-reviews-section-list {
+  display: block;
+}
+
+.homepage-reviews-section .homepage-reviews-section-list > * {
+  margin-bottom: 20px;
+}
+
+.homepage-reviews-section-list .card {
+  color: #fff;
+  padding: 18px 16px;
+  list-style: none;
+  width: 100%;
+  background: #6C757D;
+  border-radius: 5px;
+}
+
+.homepage-reviews-section-list .card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.homepage-reviews-section-list .card img {
+  max-width: 70px;
+  margin: 5px 0 -12px 0;
+}
+
+/* - Filter Button - */
+.filter-button {
+  margin-top: 0.5rem;
+  display: inline-block;
+  padding: 0.5rem 1rem ;
+  border: none;
+  color: #fff;
+  background: #5372F0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 2rem;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px;
+}
+
+.filter-button.clicked {
+  background-color: #4CAF50;
+}
+
+.filter-button.clicked::after {
+  content: '\2713';
+  display: inline-block;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.filter-button:hover {
+  background-color: #4CAF50;
+}
+
+.filter-button.clicked:hover {
+  background-color: #5372F0;
+}
+
+.filter-button:hover::after {
+  left: 0;
+}
+
+@media (max-width: 1400px) {
+  .homepage-reviews .current-weather {
+    padding: 20px;
+  }
+  .homepage-reviews-section-list {
+    flex-wrap: wrap;
+  }
+  .homepage-reviews-section-list .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .homepage-reviews-section-list .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 950px) {
+  .homepage-city-search {
+    width: 450px;
+  }
+  .homepage-reviews-section-list .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 750px) {
+  h1 {
+    font-size: 1.45rem;
+    padding: 16px 0;
+  }
+  .container {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .homepage-filters {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .button-row {
+    flex-wrap: wrap;
+  }
+
+  .homepage-city-search {
+    width: 100%;
+  }
+  .homepage-reviews h2 {
+    font-size: 1.35rem;
+  }
+}

@@ -51,7 +51,7 @@ function upload() {
   })
     .then((res) => {
       if (res.status == 200) { // success, redirect to home page
-        $("#myModal").modal("show");
+        $("#success").modal("show");
         clearFields();
       } else { // failure, pop-up an error message
 

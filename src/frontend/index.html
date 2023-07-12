@@ -5,29 +5,28 @@
     <meta charset="utf-8">
     <title>Food Finder</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/homepage.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <h1>Food Finder</h1>
     <div class="container">
-      <div class="weather-input">
+      <div class="homepage-city-search">
         <h3>Enter a City Name</h3>
-        <input class="city-input" type="text" placeholder="E.g., Markham, Toronto, Waterloo">
-        <button class="current-location-button">Use Current Location</button>
+        <input class="homepage-city-search-city-input" type="text" placeholder="E.g., Markham, Toronto, Waterloo">
+        <button class="homepage-city-search-current-location-button">Use Current Location</button>
         
         
         <div class="standard-separator"></div>
         <h3>Filters</h3>
-        <div class="filters">
+        <div class="homepage-filters">
           <button class="filter-button" onclick="this.classList.toggle('clicked')">Click Me</button>
         </div>
-        
-
       </div>
-      <div class="weather-data">
-        <div class="days-forecast">
+      <div class="homepage-reviews">
+        <div class="homepage-reviews-section">
           <h2>Recent Updates</h2>
-          <ul class="weather-cards">
+          <ul class="homepage-reviews-section-list">
             <li class="card">
               <h3>( ______ )</h3>
               <h6>Temp: __C</h6>
