@@ -24,6 +24,11 @@ h1 {
   padding: 30px;
 }
 
+.upload {
+  gap: 35px;
+  padding: 30px;
+}
+
 .filter-button {
   margin-top: 0.5rem;
   display: inline-block;
@@ -39,6 +44,7 @@ h1 {
   justify-content: center;
   overflow: hidden;
   position: relative;
+  border-radius: 4px;
 }
 
 .filter-button.clicked {
@@ -64,8 +70,52 @@ h1 {
   left: 0;
 }
 
+.upload-proceed-button {
+  margin-top: 0.5rem;
+  display: inline-block;
+  padding: 0.5rem 1rem ;
+  border: none;
+  color: #fff;
+  background: #5372F0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 2rem;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px;
+}
+
+.upload-proceed-button.clicked {
+  background-color: #4CAF50;
+}
+
+.upload-proceed-button.clicked::after {
+  display: inline-block;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.upload-proceed-button:hover {
+  background-color: #4CAF50;
+}
+
+.upload-proceed-button.clicked:hover {
+  background-color: #5372F0;
+}
+
+.upload-proceed-button:hover::after {
+  left: 0;
+}
+
+.upload-buttons {
+  width: 30%;
+}
+
 .weather-input {
-  width: 550px;
+  width: 50%;
 }
 .weather-input input {
   height: 46px;

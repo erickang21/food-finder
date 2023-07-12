@@ -9,7 +9,7 @@
   </head>
   <body>
     <h1>Food Finder</h1>
-    <div class="container">
+    <div class="upload">
       <div class="weather-input">
         <h3>Name</h3>
         <input class="upload-name" type="text" placeholder="A Great Place">
@@ -21,6 +21,8 @@
         <input class="" type="text" placeholder="Dine In/Take Out">
         <h3>Tags (Separate by commas)</h3>
         <input class="" type="text" placeholder="cozy,friendly staff,solo dining friendly,intimate,etc">
+        <h3>Description</h3>
+        <input class="" type="text" placeholder="A welcoming place with Toronto's #1 poutine!">
         <div class="standard-separator"></div>
         <h3>Overall Rating (Out of 5)</h3>
         <input class="" type="text" placeholder="4.5">
@@ -47,8 +49,10 @@
         <h3>Atmosphere Rating Description</h3>
         <input class="" type="text" placeholder="Rooftop dining for the win!">
         <div class="standard-separator"></div>
-        <button class="search-btn">Upload</button>
-        <button class="location-btn">Cancel</button>
+      </div>
+      <div class="upload-buttons">
+        <button class="upload-proceed-button" onclick="this.classList.toggle('clicked')">Upload</button>
+        <button class="upload-cancel-button">Cancel</button>
       </div>
     </div>
     
