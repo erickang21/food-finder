@@ -306,14 +306,16 @@ h1 {
   font-size: 1.5rem;
 }
 .days-forecast .weather-cards {
-  display: flex;
-  gap: 20px;
+  display: block;
+}
+.days-forecast .weather-cards > * {
+  margin-bottom: 20px;
 }
 .weather-cards .card {
   color: #fff;
   padding: 18px 16px;
   list-style: none;
-  width: calc(100% / 5);
+  width: 100%;
   background: #6C757D;
   border-radius: 5px;
 }
@@ -334,12 +336,12 @@ h1 {
     flex-wrap: wrap;
   }
   .weather-cards .card {
-    width: calc(100% / 4 - 15px);
+    width: 100%;
   }
 }
 @media (max-width: 1200px) {
   .weather-cards .card {
-    width: calc(100% / 3 - 15px);
+    width: 100%;
   }
 }
 @media (max-width: 950px) {
@@ -347,7 +349,7 @@ h1 {
     width: 450px;
   }
   .weather-cards .card {
-    width: calc(100% / 2 - 10px);
+    width: 100%;
   }
 }
 @media (max-width: 750px) {
