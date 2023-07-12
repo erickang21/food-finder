@@ -72,6 +72,7 @@ h1 {
 
 .upload-proceed-button {
   margin-top: 0.5rem;
+  margin-right: 1rem;
   display: inline-block;
   padding: 0.5rem 1rem ;
   border: none;
@@ -79,13 +80,14 @@ h1 {
   background: #5372F0;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  height: 2rem;
-  width: 30%;
+  height: 2.5rem;
+  width: 20%;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   position: relative;
   border-radius: 4px;
+  font-size: 16px;
 }
 
 .upload-proceed-button.clicked {
@@ -107,6 +109,48 @@ h1 {
 }
 
 .upload-proceed-button:hover::after {
+  left: 0;
+}
+
+.upload-cancel-button {
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+  display: inline-block;
+  padding: 0.5rem 1rem ;
+  border: none;
+  color: #fff;
+  background: #5372F0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 2.5rem;
+  width: 20%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.upload-cancel-button.clicked {
+  background-color: #4CAF50;
+}
+
+.upload-cancel-button.clicked::after {
+  display: inline-block;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.upload-cancel-button:hover {
+  background-color: #f50707;
+}
+
+.upload-cancel-button.clicked:hover {
+  background-color: #5372F0;
+}
+
+.upload-cancel-button:hover::after {
   left: 0;
 }
 
