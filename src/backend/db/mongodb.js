@@ -1,19 +1,9 @@
 const { MongoClient } = require("mongodb");
 
-class MongoDB {
-    constructor() {
-      this.dbClient = null;
-      this.db = null;
-    }
+const client = new MongoClient(process.env.MONGODB);
 
-    static async connectDatabase() {
-      this.dbClient = await MongoClient.connect(process.env.MONGODB, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-  
-      this.db = this.dbClient.db();
-    }
+function getMongoDB() {
+  return client.db("foodfinder");
 }
 
-module.exports = MongoDB;
+module.exports = getMongoDB;

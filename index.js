@@ -8,9 +8,11 @@ require('dotenv').config()
 const logger = new logHelper(this.dev ? "trace" : "info");
 
 // -- Local Imports --
-const mongodb = require("./src/backend/db/mongodb.js");
+const getMongoDB = require("./src/backend/db/mongodb.js");
+
+let database;
 try {
-  mongodb.connectDatabase();
+  database = getMongoDB();
   logger.info("Connected to MongoDB.");
 } catch (e) {
   logger.error(`Failed to connect to MongoDB.\n\n${e}`)
@@ -19,11 +21,10 @@ try {
 // -- Global variables --
 // Express app
 const app = express();
-// Database
-const db = new mongodb().db;
 
 // -- APP ROUTES --
 app.use(express.static(__dirname + '/src/frontend/'));
+app.use(express.json());
 
 // home page
 app.get("/", (req, res) => {
@@ -37,20 +38,50 @@ app.get("/upload", (req, res) => {
 
 // post
 app.post("/upload", (req, res) => {
-  const data = {
-    name: req.query.name,
-    createdAt: req.query.createdAt,
-    meal: req.query.meal,
-    type: req.query.type,
-    city: req.query.city,
-    tags: req.query.tags.split(","),
-    rating: {
-      overall: req.query.overallRating,
-      overallDescription: req.query.overallRatingDescription,
-      
-    },
-    location: req.query.location
+  const collection = database.collection("reviews");
+  /*
+  if (req.headers.Authorization != process.env.ACCESS_KEY) {
+    return res.status(403).json({
+      error: "Authorization key invalid."
+    });
   }
+  */
+  const data = {
+    name: req.body.name,
+    address: req.body.address,
+    mapsLink: req.body.mapsLink,
+    city: req.body.city,
+    meal: req.body.meal,
+    type: req.body.type,
+    price: req.body.price,
+    tags: req.body.tags.split(","),
+    description: req.body.description,
+    overallRating: req.body.overallRating,
+    overallDescription: req.body.overallRatingDescription,
+    food: req.body.foodRating,
+    foodDescription: req.body.foodRatingDescription,
+    affordability: req.body.affordabilityRating,
+    affordabilityDescription: req.body.affordabilityRatingDescription,
+    service: req.body.serviceRating,
+    serviceDescription: req.body.serviceRatingDescription,
+    atmosphere: req.body.atmosphereRating,
+    atmosphereDescription: req.body.atmosphereRatingDescription,
+    createdAt: req.body.createdAt,
+  }
+  let returnedId;
+  try {
+    collection.insertOne(data)
+      .then((res) => returnedId = res.insertedId);
+  } catch (e) {
+    return res.status(400).json({
+      error: "Error saving to database.",
+      stack: e
+    });
+  }
+  return res.status(200).json({
+    message: "Success",
+    _id: returnedId
+  });
 })
 
 app.listen(3000, (err) => {
