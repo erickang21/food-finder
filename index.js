@@ -36,6 +36,21 @@ app.get("/upload", (req, res) => {
   res.sendFile(process.cwd() + "/src/frontend/upload.html");
 });
 
+app.get("/reviews", (req, res) => {
+  const collection = database.collection("reviews");
+  collection.find({})
+    .toArray((err, result) => {
+      if (err) {
+        return res.status(400).json({
+          error: "Error retrieving reviews.",
+          stack: err
+        });
+      } else {
+        return res.status(200).json(result);
+      }
+    })
+})
+
 // post
 app.post("/upload", (req, res) => {
   const collection = database.collection("reviews");
