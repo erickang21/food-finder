@@ -1,30 +1,12 @@
-function getAllFilters() {
-  fetch("http://localhost:3000/reviews", {
-    method: "GET"
-  })
-    .then((res) => {
-      res = res.json()
-        .then((data) => {
-          const filters = [];
-          for (const review of data) {
-            for (const tag of review.tags) {
-              if (!filters.includes(tag)) filters.push(tag);
-            }
-          }
-          return filters;
-        })
 
-    })
-}
-
-function getReviewsHTML() {
-  console.log("triggered")
+document.addEventListener('DOMContentLoaded', function () {
   fetch("http://localhost:3000/reviews", {
     method: "GET"
   })
     .then((res) => {
       res = res.json()
         .then((reviews) => {
+          const filters = [];
           for (const review of reviews) {
             document.getElementById("homepage-reviews-section-list").innerHTML += `
       <li class="card">
@@ -35,6 +17,9 @@ function getReviewsHTML() {
       </li>
       `
           }
+          return filters;
         })
+      
     })
-}
+});
+

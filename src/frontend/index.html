@@ -6,6 +6,8 @@
     <title>Food Finder</title>
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/homepage.css">
+    <script type="text/javascript" src="./scripts/getReviews.js"></script>
+    <script type="text/javascript" src="./scripts/index.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -15,6 +17,7 @@
         <h3>Enter a City Name</h3>
         <input class="homepage-city-search-city-input" type="text" placeholder="E.g., Markham, Toronto, Waterloo">
         <button class="homepage-city-search-current-location-button">Use Current Location</button>
+        <button class="homepage-city-search-current-location-button" onclick="getReviewsHTML()">Click Me</button>
         
         
         <div class="standard-separator"></div>
@@ -26,37 +29,7 @@
       <div class="homepage-reviews">
         <div class="homepage-reviews-section">
           <h2>Recent Updates</h2>
-          <ul class="homepage-reviews-section-list">
-            <li class="card">
-              <h3>( ______ )</h3>
-              <h6>Temp: __C</h6>
-              <h6>Wind: __ M/S</h6>
-              <h6>Humidity: __%</h6>
-            </li>
-            <li class="card">
-              <h3>( ______ )</h3>
-              <h6>Temp: __C</h6>
-              <h6>Wind: __ M/S</h6>
-              <h6>Humidity: __%</h6>
-            </li>
-            <li class="card">
-              <h3>( ______ )</h3>
-              <h6>Temp: __C</h6>
-              <h6>Wind: __ M/S</h6>
-              <h6>Humidity: __%</h6>
-            </li>
-            <li class="card">
-              <h3>( ______ )</h3>
-              <h6>Temp: __C</h6>
-              <h6>Wind: __ M/S</h6>
-              <h6>Humidity: __%</h6>
-            </li>
-            <li class="card">
-              <h3>( ______ )</h3>
-              <h6>Temp: __C</h6>
-              <h6>Wind: __ M/S</h6>
-              <h6>Humidity: __%</h6>
-            </li>
+          <ul id="homepage-reviews-section-list" class="homepage-reviews-section-list">
           </ul>
         </div>
       </div>
