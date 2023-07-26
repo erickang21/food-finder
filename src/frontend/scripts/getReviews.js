@@ -16,8 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
         <h6><b>Tags:</b> ${review.tags.join(", ")}</h6>
       </li>
       `
+            for (const tag of review.tags) {
+              if (!filters.includes(tag) && tag.length) {
+                document.getElementById("homepage-filters").innerHTML += `
+                <button class="filter-button" onclick="this.classList.toggle('clicked')">${tag}</button>
+                `;
+              }
+            }
           }
-          return filters;
         })
       
     })
